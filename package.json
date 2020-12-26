@@ -1,0 +1,11 @@
+{
+  "name": "algorithms-tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test/index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "",
+  "license": "ISC"
+}
