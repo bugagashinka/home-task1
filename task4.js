@@ -1,10 +1,16 @@
+const { validateTask4: validate } = require("./validator");
+
 module.exports = (arr1, arr2) => {
-  const arr1Map = arr1.reduce((map, item) => map.set(item, map.has(item) ? map.get(item) + 1 : 1), new Map());
+  validate(arr1, arr2);
+  const arr1ItemCountMap = arr1.reduce((itemCountMap, item) => {
+    itemCountMap.set(item, (itemCountMap.get(item) ?? 0) + 1);
+    return itemCountMap;
+  }, new Map());
 
   const res = arr2.reduce((res, item) => {
-    const size = arr1Map.get(item);
-    arr1Map.delete(item);
+    const size = arr1ItemCountMap.get(item);
+    arr1ItemCountMap.delete(item);
     return res.concat(Array(size).fill(item));
   }, []);
-  return res.concat(...arr1Map.keys());
+  return res.concat(...arr1ItemCountMap.keys());
 };
