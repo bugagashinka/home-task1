@@ -31,6 +31,15 @@ assert.deepStrictEqual(resolve([0, 9, 8, 7, 6, 5, 4, 3, 2, 1], [1, 2, 3, 4, 5, 6
 ]);
 
 // Negative tests
+assert.throws(() => resolve(1, [1]), {
+  name: "Error",
+  message: "Each input argument must be array",
+});
+assert.throws(() => resolve([1], ""), {
+  name: "Error",
+  message: "Each input argument must be array",
+});
+
 assert.throws(() => resolve([-1], [-1]), {
   name: "Error",
   message: "0 <= arr1[i], arr2[i] <= 1000",

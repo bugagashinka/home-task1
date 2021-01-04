@@ -15,17 +15,17 @@ assert.strictEqual(resolve("MMMCMXCIX"), 3999);
 // Negative tests
 assert.throws(() => resolve(1), {
   name: "Error",
-  message: "Input argument must be string  1 <= string length <= 15",
+  message: "Input argument must be string",
 });
 assert.throws(() => resolve(""), {
   name: "Error",
-  message: "Input argument must be string  1 <= string length <= 15",
+  message: "Input argument must satisfy next constraints 1 <= input length <= 15",
 });
 assert.throws(() => resolve("IIIIIIIIIXIIIIIIIIIX"), {
   name: "Error",
-  message: "Input argument must be string  1 <= string length <= 15",
+  message: "Input argument must satisfy next constraints 1 <= input length <= 15",
 });
-assert.throws(() => resolve("H"), {
+assert.throws(() => resolve("HI"), {
   name: "Error",
   message: "Only the following 'I', 'V', 'X', 'L', 'C', 'D', 'M' characters are expected",
 });

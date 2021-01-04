@@ -15,6 +15,11 @@ assert.strictEqual(
 );
 
 // Negative tests
+assert.throws(() => resolve(2), {
+  name: "Error",
+  message: "Input argument must be string",
+});
+
 assert.throws(
   () =>
     resolve(
@@ -22,14 +27,14 @@ assert.throws(
     ),
   {
     name: "Error",
-    message: "Input argument must be string 1 <= length <= 104",
+    message: "Input argument must satisfy next constraints 1 <= input length <= 104",
   }
 );
 assert.throws(() => resolve(""), {
   name: "Error",
-  message: "Input argument must be string 1 <= length <= 104",
+  message: "Input argument must satisfy next constraints 1 <= input length <= 104",
 });
 assert.throws(() => resolve("[]{<>}"), {
   name: "Error",
-  message: "String must consists of parentheses only '()[]{}'",
+  message: "String must consists of next '()[]{}' brackets",
 });

@@ -1,6 +1,7 @@
+const { validateTask5: validate } = require("./validator");
+
 module.exports = (nums, target) => {
-  if (!Array.isArray(nums) || typeof target !== "number")
-    throw Error("Function arguments should be 'array' and 'number' in the following sequence");
+  validate(nums, target);
 
   const res = nums.findIndex((num) => num - target >= 0);
   return res >= 0 ? res : nums.length;
